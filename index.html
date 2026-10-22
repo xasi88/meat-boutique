@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Мясной бутик: каталог и заказ</title>
+<meta name="description" content="Говядина, баранина, курица, фарш, полуфабрикаты и сушёное мясо. Грозный. Соберите заказ и отправьте в WhatsApp.">
+<meta name="theme-color" content="#4f010a">
+<meta property="og:title" content="Мясной бутик: каталог и заказ">
+<meta property="og:description" content="Мясо со стилем. Соберите заказ и отправьте в WhatsApp. Доставка по Грозному бесплатно от 10 000 ₽.">
+<meta property="og:image" content="img/steaks.webp">
+<link rel="icon" href="img/logo.webp">
+<link rel="apple-touch-icon" href="img/logo-512.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="demo" id="demo" hidden>Демо-версия. Часть цен примерная.</div>
+
+<header class="hero">
+  <img class="hero-bg" src="img/hero.webp" alt="">
+  <div class="hero-in">
+    <img class="logo" src="img/logo.webp" alt="Логотип Мясной бутик" width="132" height="132">
+    <h1>Мясной бутик</h1>
+    <p class="slogan" id="slogan"></p>
+    <div class="chips">
+      <span class="chip gold">Свежее мясо каждый день</span>
+      <span class="chip" id="freeChip"></span>
+      <span class="chip" id="place"></span>
+    </div>
+    <a class="cta" href="#menu">Смотреть каталог</a>
+  </div>
+</header>
+
+<nav class="cats" id="cats" aria-label="Разделы каталога"></nav>
+
+<main id="menu"></main>
+
+<section class="block">
+  <h2>Почему у нас</h2>
+  <div class="perks" id="perks"></div>
+</section>
+
+<section class="block">
+  <h2>Как заказать</h2>
+  <ol class="steps">
+    <li><b>Выберите товары.</b> Мясо на вес, шаг 0,5 кг. Корзина сама считает сумму.</li>
+    <li><b>Укажите детали.</b> Самовывоз или доставка, время, пожелания по разделке.</li>
+    <li><b>Отправьте заказ.</b> Он придёт в WhatsApp бутика готовым сообщением.</li>
+  </ol>
+</section>
+
+<footer class="foot">
+  <img src="img/logo.webp" alt="" width="64" height="64">
+  <p id="addrText"></p>
+  <p><a id="tel" href="#"></a></p>
+  <p><a id="insta" href="#" target="_blank" rel="noopener"></a></p>
+</footer>
+
+<div class="bar" id="bar">
+  <button class="bar-btn" id="openCart" type="button">
+    <span class="bar-count" id="barCount">0</span>
+    <span>Корзина</span>
+    <span class="bar-sum" id="barSum">0 ₽</span>
+  </button>
+</div>
+
+<!-- Подробности товара -->
+<div class="sheet" id="details" aria-hidden="true">
+  <div class="panel" role="dialog" aria-modal="true" aria-labelledby="dName">
+    <button class="x" data-close type="button" aria-label="Закрыть">✕</button>
+    <img class="d-img" id="dImg" alt="">
+    <div class="d-body">
+      <h3 id="dName"></h3>
+      <p class="d-desc" id="dDesc"></p>
+      <div class="d-row">
+        <div class="price" id="dPrice"></div>
+        <div id="dCtl"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Корзина -->
+<div class="sheet" id="cart" aria-hidden="true">
+  <div class="panel pad" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
+    <div class="ph"><h3 id="cartTitle">Ваш заказ</h3><button class="x" data-close type="button" aria-label="Закрыть">✕</button></div>
+    <div id="lines"></div>
+    <button class="clear" id="clear" type="button">Очистить корзину</button>
+    <div class="tot"><span>Итого</span><span id="total">0 ₽</span></div>
+    <div class="free" id="free"></div>
+    <div class="seg" id="way">
+      <button class="on" data-v="Самовывоз" type="button">Самовывоз</button>
+      <button data-v="Доставка" type="button">Доставка</button>
+    </div>
+    <div id="addrBox" hidden><label for="addr">Адрес доставки</label><input id="addr" autocomplete="street-address" placeholder="Улица, дом, квартира"></div>
+    <label for="name">Ваше имя</label><input id="name" autocomplete="given-name" placeholder="Как к вам обращаться">
+    <label for="when">Когда нужно</label><input id="when" placeholder="Например: сегодня к 19:00">
+    <label for="comment">Пожелания</label><textarea id="comment" rows="2" placeholder="Нарезать на стейки, фарш нежирный"></textarea>
+    <button class="send wa" id="sendWa" type="button">Отправить заказ в WhatsApp</button>
+    <button class="send ig" id="sendIg" type="button">Скопировать заказ для Instagram</button>
+    <p class="note">Бутик ответит и подтвердит заказ, цену и время.</p>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status"></div>
+
+<script src="data/menu.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
