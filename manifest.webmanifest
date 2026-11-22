@@ -1,0 +1,15 @@
+{
+  "id": "/meat-boutique/",
+  "name": "Мясной бутик · Каталог и заказ",
+  "short_name": "Мясной бутик",
+  "description": "Каталог «Мясной бутик». Соберите заказ и отправьте его в WhatsApp бутика",
+  "lang": "ru",
+  "start_url": "./#menu",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#140306",
+  "theme_color": "#140306",
+  "icons": [
+    { "src": "img/logo-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
+  ]
+}

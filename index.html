@@ -1,115 +1,119 @@
 <!doctype html>
 <html lang="ru">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="robots" content="noindex">
-<title>Мясной бутик: каталог и заказ</title>
-<meta name="description" content="Говядина, баранина, курица, фарш, полуфабрикаты и сушёное мясо. Грозный. Соберите заказ и отправьте в WhatsApp.">
-<meta name="theme-color" content="#4f010a">
-<meta property="og:title" content="Мясной бутик: каталог и заказ">
-<meta property="og:description" content="Мясо со стилем. Соберите заказ и отправьте в WhatsApp. Доставка по Грозному бесплатно от 10 000 ₽.">
-<meta property="og:image" content="img/steaks.webp">
-<link rel="icon" href="img/logo.webp">
-<link rel="apple-touch-icon" href="img/logo-512.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="tokens.css">
-<link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Мясной бутик · Каталог и заказ в WhatsApp</title>
+  <meta name="description" content="Каталог «Мясной бутик», Грозный: баранина, говядина, стейки, шашлык, полуфабрикаты. Соберите заказ и отправьте его в WhatsApp бутика.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#140306">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:title" content="Мясной бутик · Каталог и заказ в WhatsApp">
+  <meta property="og:description" content="Весь прайс с ценами. Соберите заказ и отправьте его в WhatsApp бутика.">
+  <meta property="og:image" content="img/logo-512.png">
+
+  <link rel="icon" href="img/logo-512.png" type="image/png">
+  <link rel="apple-touch-icon" href="img/logo-512.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="apple-mobile-web-app-title" content="Мясной бутик">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/menu.css">
+  <link rel="stylesheet" href="css/views.css">
 </head>
 <body>
-<div class="demo" id="demo" hidden>Демо-версия. Часть цен примерная.</div>
-
-<header class="hero">
-  <img class="hero-bg" src="img/hero.webp" alt="">
-  <div class="hero-in">
-    <img class="logo" src="img/logo.webp" alt="Логотип Мясной бутик" width="132" height="132">
-    <h1>Мясной бутик</h1>
-    <p class="slogan" id="slogan"></p>
-    <div class="chips">
-      <span class="chip gold">Свежее мясо каждый день</span>
-      <span class="chip" id="freeChip"></span>
-      <span class="chip" id="place"></span>
+  <noscript>
+    <p class="noscript">Для корзины включите JavaScript. Заказ: <a href="https://wa.me/79637016060">WhatsApp 8 (963) 701-60-60</a>.</p>
+  </noscript>
+  <header class="appbar">
+    <div class="appbar-in">
+      <a class="brand" href="#menu" aria-label="Мясной бутик, каталог">
+        <span class="brand-mark" id="brandMark"></span>
+        <span class="brand-text"><b>Мясной бутик</b><span class="brand-sub">Грозный · каталог</span></span>
+      </a>
+      <nav class="tools" aria-label="Разделы">
+        <a class="tool" href="#search" data-go="search" aria-label="Поиск товара"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg></a>
+        <a class="tool" href="#cafe" data-go="cafe" aria-label="О бутике: адрес и телефон"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/></svg></a>
+      </nav>
     </div>
-    <a class="cta" href="#menu">Смотреть каталог</a>
-  </div>
-</header>
+  </header>
 
-<nav class="cats" id="cats" aria-label="Разделы каталога"></nav>
-
-<main id="menu"></main>
-
-<section class="block">
-  <h2>Почему у нас</h2>
-  <div class="perks" id="perks"></div>
-</section>
-
-<section class="block">
-  <h2>Как заказать</h2>
-  <ol class="steps">
-    <li><b>Выберите товары.</b> Мясо на вес, шаг 0,5 кг. Корзина сама считает сумму.</li>
-    <li><b>Укажите детали.</b> Самовывоз или доставка, время, пожелания по разделке.</li>
-    <li><b>Отправьте заказ.</b> Он придёт в WhatsApp бутика готовым сообщением.</li>
-  </ol>
-</section>
-
-<footer class="foot">
-  <img src="img/logo.webp" alt="" width="64" height="64">
-  <p id="addrText"></p>
-  <p><a id="tel" href="#"></a></p>
-  <p><a id="insta" href="#" target="_blank" rel="noopener"></a></p>
-</footer>
-
-<div class="bar" id="bar">
-  <button class="bar-btn" id="openCart" type="button">
-    <span class="bar-count" id="barCount">0</span>
-    <span>Корзина</span>
-    <span class="bar-sum" id="barSum">0 ₽</span>
-  </button>
-</div>
-
-<!-- Подробности товара -->
-<div class="sheet" id="details" aria-hidden="true">
-  <div class="panel" role="dialog" aria-modal="true" aria-labelledby="dName">
-    <button class="x" data-close type="button" aria-label="Закрыть">✕</button>
-    <img class="d-img" id="dImg" alt="">
-    <div class="d-body">
-      <h3 id="dName"></h3>
-      <p class="d-desc" id="dDesc"></p>
-      <div class="d-row">
-        <div class="price" id="dPrice"></div>
-        <div id="dCtl"></div>
+  <main class="app">
+    <section class="view" id="view-menu" data-view="menu" aria-label="Каталог">
+      <div class="menu-layout">
+        <div class="menu-main">
+          <div class="intro" id="intro"></div>
+          <nav class="chips" id="chips" aria-label="Разделы каталога"><div class="chips-track" id="chipsTrack"><span class="chips-pill" id="chipsPill"></span></div></nav>
+          <div id="groups"></div>
+          <p class="price-note" id="priceNote"></p>
+        </div>
+        <aside class="side-order" id="sideOrder" aria-label="Ваш заказ"></aside>
       </div>
-    </div>
+    </section>
+
+    <section class="view" id="view-search" data-view="search" aria-label="Поиск" hidden>
+      <div class="page">
+        <a class="back" href="#menu"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>Каталог</a>
+        <h2 class="page-title">Поиск</h2>
+        <label class="searchbox">
+          <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+          <input id="q" type="search" placeholder="Стейк, фарш, манты…" autocomplete="off" enterkeyhint="search" aria-label="Найти товар">
+          <button type="button" class="clear" id="qClear" aria-label="Очистить" hidden>×</button>
+        </label>
+        <div class="quick" id="quick"></div>
+        <div class="results" id="results"></div>
+      </div>
+    </section>
+
+    <section class="view" id="view-order" data-view="order" aria-label="Заказ" hidden>
+      <div class="page" id="orderPage"></div>
+    </section>
+
+    <section class="view" id="view-cafe" data-view="cafe" aria-label="О бутике" hidden>
+      <div class="page" id="cafePage"></div>
+    </section>
+  </main>
+
+  <a class="cartbar" id="cartbar" href="#order" aria-label="Открыть корзину">
+    <span class="cb-bag" id="cartbarBag"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l-1 12H6z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><i id="cartbarCount">0</i></span>
+    <span class="cb-text">Корзина, примерно<b class="cb-sum" id="cartbarSum">0 ₽</b></span>
+    <span class="cb-go">Оформить<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></span>
+  </a>
+
+  <div class="sheet" id="sheet" aria-hidden="true">
+    <div class="sheet-bg" data-close></div>
+    <article class="sheet-card" role="dialog" aria-modal="true" aria-labelledby="dName" tabindex="-1">
+      <button class="sheet-x" type="button" data-close aria-label="Закрыть">
+        <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+      <div class="d-art" id="dArt"></div>
+      <div class="d-body">
+        <p class="d-meta" id="dMeta"></p>
+        <h2 class="d-name" id="dName">Товар</h2>
+        <p class="d-sum" id="dSum"></p>
+        <div class="d-buy"><b class="d-price" id="dPrice"></b><div id="dCtl" data-ctl-big></div></div>
+      </div>
+    </article>
   </div>
-</div>
 
-<!-- Корзина -->
-<div class="sheet" id="cart" aria-hidden="true">
-  <div class="panel pad" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
-    <div class="ph"><h3 id="cartTitle">Ваш заказ</h3><button class="x" data-close type="button" aria-label="Закрыть">✕</button></div>
-    <div id="lines"></div>
-    <button class="clear" id="clear" type="button">Очистить корзину</button>
-    <div class="tot"><span>Итого</span><span id="total">0 ₽</span></div>
-    <div class="free" id="free"></div>
-    <div class="seg" id="way">
-      <button class="on" data-v="Самовывоз" type="button">Самовывоз</button>
-      <button data-v="Доставка" type="button">Доставка</button>
-    </div>
-    <div id="addrBox" hidden><label for="addr">Адрес доставки</label><input id="addr" autocomplete="street-address" placeholder="Улица, дом, квартира"></div>
-    <label for="name">Ваше имя</label><input id="name" autocomplete="given-name" placeholder="Как к вам обращаться">
-    <label for="when">Когда нужно</label><input id="when" placeholder="Например: сегодня к 19:00">
-    <label for="comment">Пожелания</label><textarea id="comment" rows="2" placeholder="Нарезать на стейки, фарш нежирный"></textarea>
-    <button class="send wa" id="sendWa" type="button">Отправить заказ в WhatsApp</button>
-    <button class="send ig" id="sendIg" type="button">Скопировать заказ для Instagram</button>
-    <p class="note">Бутик ответит и подтвердит заказ, цену и время.</p>
-  </div>
-</div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <span class="flyer" id="flyer" aria-hidden="true"></span>
 
-<div class="toast" id="toast" role="status"></div>
-
-<script src="data/menu.js"></script>
-<script src="app.js"></script>
+  <script src="data/menu.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/icons.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/zakaz.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/stats.js"></script>
+  <script src="js/menu.js"></script>
+  <script src="js/order.js"></script>
+  <script src="js/version.js"></script>
+  <script src="js/app.js"></script>
 </body>
 </html>
